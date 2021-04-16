@@ -16,7 +16,7 @@ function SingleCountry() {
         getCountry(countryNameInput)
             .then(country => {
                 //if message is defined, then the API call returned an error
-                setCountryName(!country.message ? country.name : "Country was not found");
+                setCountryName(country.name);
         })
     };  
 
