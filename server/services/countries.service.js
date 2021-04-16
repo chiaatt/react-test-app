@@ -3,13 +3,12 @@
 */
 const fetch = require("node-fetch");
 
-const getCountry = async function(countryName){ 
+const getCountry = async function(countryName){
     const response = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`);
     return await response.json();
 }
 
 const getCountries = async function(countryNames){
-
     let countries = [];
     for( const countryName of countryNames) {
         const response = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`);     
@@ -19,7 +18,13 @@ const getCountries = async function(countryNames){
     return countries;
 }
 
+const getAll = async function(){
+    const response = await fetch(`https://restcountries.eu/rest/v2/all`);
+    return await response.json();
+}
+
 module.exports = {
     getCountry,
-    getCountries
+    getCountries,
+    getAll
 };

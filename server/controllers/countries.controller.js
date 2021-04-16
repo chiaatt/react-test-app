@@ -34,7 +34,10 @@ const getCountries = function(req, res){
             });
     } else { 
         //if the user didn't pass any countries as query parameters, then retrieve all the countries.
-        //TODO in task 3
+        countriesService.getAll()
+            .then(countries => {
+                res.send({"names": countries && !countries.message ? countries.map(country => country.name) : "Country Not Found"});
+            });
     }
 }
     
