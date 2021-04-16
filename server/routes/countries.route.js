@@ -10,4 +10,8 @@ const countriesController = require('../controllers/countries.controller');
 router.route('/:countryName')
     .get(countriesController.getCountry);
 
+//For Task 2&3
+router.route('/')
+    .get(countriesController.getCountries);
+
 module.exports = router;
