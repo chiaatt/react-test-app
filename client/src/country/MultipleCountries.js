@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getCountries } from './MultipleCountriesAPI';
 import './CommonCountryStyles.css';
 
+//Task Two
 function MultipleCountries() {
     const [countryNames, setCountryNames] = useState([]);
     const [countryNamesInput, setCountryNamesInput] = useState(['']);

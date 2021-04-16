@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getCountry } from './SingleCountryAPI';
 
+//Task One
 function SingleCountry() {
     const [countryName, setCountryName] = useState('');
     const [countryNameInput, setCountryNameInput] = useState('');
