@@ -1,11 +1,15 @@
 const express = require('express');
 const countries = require('./countries.route');
 const users = require('./users.route');
+const sessions = require('./sessions.route');
 
 const router = express.Router();
 
 router.use('/countries', countries);
+// registration
 router.use('/users', users);
+// login
+router.use('/session', sessions);
 
 router.get('/', (req, res) => res.send('Sample Node API Version1'));
 router.get('/health', (req, res) => {

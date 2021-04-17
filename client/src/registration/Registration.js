@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import validator from './Validator';
 import {register} from './RegistrationAPI';
 import './Registration.css';
+import {authenticationAction} from '../actions/AuthenticationAction';
+import {connect} from 'react-redux'
 
 //Task Four
-function Registration() {
+function Registration(props) {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -12,6 +14,13 @@ function Registration() {
 
     const [errors, setErrors] = useState({});
     const [result, setResult] = useState("");
+
+    useEffect(() => {
+        // If the user is registered successfully & logged in
+        if (!(props.currentUser && props.currentUser.message)) {
+            //TODO: Redirect to the slots page (task 6)
+        }
+    },[props.currentUser]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -40,10 +49,17 @@ function Registration() {
         const errorsList = validator(request);
         setErrors(errorsList);
 
-        //If no errors call API
+        //if no errors call API
         if (!Object.values(errorsList).some(error => error.length !== 0)) {
             register(request)
-                .then(response => setResult(response.result));
+                .then(response => {
+                    if (response.message) {
+                        setResult(response.message)
+                    } else {
+                        //login user to set a session 
+                        props.authenticationAction(request);
+                    }
+                });
         }  
     };
 
@@ -100,4 +116,14 @@ function Registration() {
     );
 }
 
-export default Registration;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        authenticationAction: (user) => dispatch(authenticationAction(user))
+    }
+};
+
+const mapStateToProps = state => ({
+    currentUser: state.currentUser
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);
