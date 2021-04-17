@@ -1,9 +1,11 @@
 const express = require('express');
 const countries = require('./countries.route');
+const users = require('./users.route');
 
 const router = express.Router();
 
 router.use('/countries', countries);
+router.use('/users', users);
 
 router.get('/', (req, res) => res.send('Sample Node API Version1'));
 router.get('/health', (req, res) => {

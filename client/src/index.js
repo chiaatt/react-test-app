@@ -6,6 +6,7 @@ import App from './App';
 import SingleCountry from './country/SingleCountry';
 import MultipleCountries from './country/MultipleCountries';
 import FilterCountries from './country/FilterCountries';
+import Registration from './registration/Registration';
 
 ReactDOM.render(
   <Router>
@@ -14,6 +15,7 @@ ReactDOM.render(
     <Route path='/task/one' component={SingleCountry} />
     <Route path='/task/two' component={MultipleCountries} />
     <Route path='/task/three' component={FilterCountries} />
+    <Route path='/registration' component={Registration} />
   </div>
   </Router>,
   document.getElementById('root')
