@@ -14,7 +14,10 @@ async function dbQuery(users, userDetails) {
     const user = await users.find({email: userDetails.email}).toArray();
     //If user already exists - based on email then throw an error
     if (user && user.length > 0) {
-        return {message: "User already exists"};
+        return {
+            key: "USER_ALREDY_EXISTS",
+            message: "User already exists"
+        };
     } else {
         //Create user record in the db
         const userInsert = await users.insertOne(userDetails);

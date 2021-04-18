@@ -14,10 +14,13 @@ async function dbQuery(users, userDetails) {
     //If user & password matches then create a token
     if (user && user.length > 0) {
         //Generate access token that will expire after 30mins
-        const token = jwt.sign(userDetails, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+        const token = jwt.sign(userDetails, process.env.TOKEN_SECRET, { expiresIn: '3600s' });
         return {user: userDetails, token: token};
     } else {
-        return {message: "User Not Found"}
+        return {
+            key: "USER_NOT_FOUND",
+            message: "User Not Found"
+        }
     }
 }
 
