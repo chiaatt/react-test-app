@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react';
 import './Login.css';
-import {authenticationAction} from '../actions/AuthenticationAction';
+import {authenticationAction} from '../_actions/AuthenticationAction';
 import {connect} from 'react-redux';
 
 //Task Five
@@ -12,13 +12,14 @@ function Login(props) {
 
     useEffect(() => {
         //checking if the user logged in successfully or not
-        if (props.currentUser && props.currentUser.message && props.currentUser.message === "User Not Found") {
-            setErrors("User not found");
-        } else {
+        if (props.loggingIn){
             setErrors("");
-            //TODO: Redirect to the slots page (task 6)
+            //Redirect to the slots page (task 6)
+            props.history.push('/slots');
+        } else if (!props.loggedIn && props.message){
+            setErrors("User not found");
         }
-    },[props.currentUser]);
+    },[props.loggingIn, props.message]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -63,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser
+    loggingIn: state.loggingIn,
+    message: state.message
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

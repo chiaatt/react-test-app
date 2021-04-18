@@ -6,7 +6,7 @@ export const authenticationAction = (user) => dispatch => {
         if (data.message) {
             //Login authentication failed
             dispatch({
-                type: 'FAILED_LOGIN',
+                type: 'LOGIN_FAILED',
                 payload: data
             });
         } else {

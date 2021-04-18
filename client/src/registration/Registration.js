@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import validator from './Validator';
 import {register} from './RegistrationAPI';
 import './Registration.css';
-import {authenticationAction} from '../actions/AuthenticationAction';
+import {authenticationAction} from '../_actions/AuthenticationAction';
 import {connect} from 'react-redux'
 
 //Task Four
@@ -16,11 +16,12 @@ function Registration(props) {
     const [result, setResult] = useState("");
 
     useEffect(() => {
-        // If the user is registered successfully & logged in
-        if (!(props.currentUser && props.currentUser.message)) {
-            //TODO: Redirect to the slots page (task 6)
+        //checking if the user logged in successfully or not
+        if (props.loggingIn && props.loggingIn === true){
+            //Redirect to the slots page (task 6)
+            props.history.push('/slots');
         }
-    },[props.currentUser]);
+    },[props.loggingIn]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -123,7 +124,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser
+    loggingIn: state.loggingIn
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);

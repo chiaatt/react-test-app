@@ -6,3 +6,8 @@ form input, form button{
     display: block;
     margin: 10px auto 0px;
 }
+
+small.error {
+    color: red;
+    font-size: x-small;
+}
