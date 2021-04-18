@@ -1,12 +1,12 @@
 /*
 * Spin
 */
-import { authHeader } from '../_helpers/AuthHeader';
+import { AuthHeader } from '../_helpers/AuthHeader';
 
 export async function slot() {
     const response = await fetch(`/spins`, {
         method: 'GET',
-        headers: authHeader()
+        headers: AuthHeader()
     });
     return await response.json();
 }
