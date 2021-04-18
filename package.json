@@ -24,9 +24,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
     "node-fetch": "^2.6.1",
-    "redux-logger": "^3.0.6"
-  },
-  "devDependencies": {
     "dotenv": "^8.2.0",
     "prettifier": "^0.4.0"
   }
