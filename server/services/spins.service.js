@@ -1,3 +1,6 @@
+/*
+ Spins Service
+*/
 const { response } = require("express");
 const MongoClient = require('mongodb').MongoClient;
 

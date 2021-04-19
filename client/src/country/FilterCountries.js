@@ -13,7 +13,6 @@ function FilterCountries() {
         getCountries()
             .then(countries => {
                 if(mounted) {
-                    //if message is defined, then the API call returned an error
                     setCountryNames(countries.names);
                 }
         })
@@ -24,7 +23,7 @@ function FilterCountries() {
         <div>
             <h2>Task 3</h2>
             <p>Filter Countries</p>
-            <input data-testid= "input" type="text" onChange={event => setCountryNameInput(event.target.value)} value = {countryNameInput}/>
+            <input type="text" onChange={event => setCountryNameInput(event.target.value)} value = {countryNameInput}/>
 
             <p>Matched Countries:</p>
             {countryNames.length

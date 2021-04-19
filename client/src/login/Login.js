@@ -11,7 +11,7 @@ function Login(props) {
     const [errors, setErrors] = useState("");
 
     useEffect(() => {
-        //checking if the user logged in successfully or not
+        //Checking if the user logged in successfully or not
         if (props.loggingIn){
             setErrors("");
             //Redirect to the slots page (task 6)
@@ -29,11 +29,13 @@ function Login(props) {
             password: password
         };
 
+        //Call the login API & set session
         props.authenticationAction(request);
     };
 
     return (
         <div>
+        <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"

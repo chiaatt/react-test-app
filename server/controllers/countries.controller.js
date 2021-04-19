@@ -17,12 +17,14 @@ const getCountries = function(req, res){
 
         let countries = []
 
+        //Retrieve the countries
         countriesService.getCountries(countryNames)
-            //Return the first country in the list
             .then(response => {
+                //For each set of countries that match the partial countries passed in the query parameter
                response.forEach(data => {
-                   //if the response is not an error
+                   //If the response is not an error
                    if (!data.message) {
+                        //For each country
                         data.forEach(countryDetails => {
                             if(!countryDetails.message){ 
                                 countries.push(countryDetails.name);

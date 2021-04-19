@@ -1,7 +1,7 @@
 const initialState = {
     currentUser: {}
   }
-  
+//Authentication reducer  
 export default function reducer(state = initialState, action) {
     switch (action.type) {
     case 'LOGIN_USER':

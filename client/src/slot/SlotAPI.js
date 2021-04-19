@@ -1,6 +1,4 @@
-/*
-* Spin
-*/
+//Spin API
 import { AuthHeader } from '../_helpers/AuthHeader';
 
 export async function slot() {

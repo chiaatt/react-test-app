@@ -21,6 +21,7 @@ function Slot(props) {
             if (data.key === "NO_FUNDS") {
                 setError(data.message);
             } else {
+                //Set the result, balance & reward
                 setSlotResult(data.result);
                 setBalance(data.balance);
                 setReward(data.won);

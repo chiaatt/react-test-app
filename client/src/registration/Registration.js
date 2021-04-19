@@ -32,8 +32,9 @@ function Registration(props) {
             email: email,
             password: password
         };
-        
+        //validate the fields
         const errorsList = validator(request);
+        //set the error mesages
         setErrors(errorsList);
     };
 
@@ -50,11 +51,12 @@ function Registration(props) {
         const errorsList = validator(request);
         setErrors(errorsList);
 
-        //if no errors call API
+        //If no validation errors call the registration API
         if (!Object.values(errorsList).some(error => error.length !== 0)) {
             register(request)
                 .then(response => {
                     if (response.message) {
+                        //set the response
                         setResult(response.message)
                     } else {
                         //login user to set a session 
@@ -66,6 +68,7 @@ function Registration(props) {
 
     return (
         <div>
+            <h1>Registration</h1>
             <form onSubmit={handleClickSubmit}>
                 <input
                     type="text"

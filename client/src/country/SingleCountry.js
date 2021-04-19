@@ -16,7 +16,6 @@ function SingleCountry() {
         // Returns the first country matched based on the user input
         getCountry(countryNameInput)
             .then(country => {
-                //if message is defined, then the API call returned an error
                 setCountryName(country.name);
         })
     };  

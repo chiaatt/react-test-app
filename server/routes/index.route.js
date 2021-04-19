@@ -6,6 +6,7 @@ const spins = require('./spins.route');
 
 const router = express.Router();
 
+// countries
 router.use('/countries', countries);
 // registration
 router.use('/users', users);
@@ -13,8 +14,7 @@ router.use('/users', users);
 router.use('/session', sessions);
 // spin
 router.use('/spins', spins);
-
-router.get('/', (req, res) => res.send('Sample Node API Version1'));
+// health-check
 router.get('/health', (req, res) => {
   const healthcheck = {
 		uptime: process.uptime(),

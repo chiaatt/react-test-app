@@ -1,6 +1,4 @@
-/*
-    Handles the routes to the Country controller
-*/
+//Handles the routes to the Country controller
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 
