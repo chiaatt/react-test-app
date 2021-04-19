@@ -8,7 +8,7 @@ https://github.com/chiaatt/react-test-app
 You can either access the application via https://chia-react-test-app.herokuapp.com/ or build the application locally.
 
 Steps to build the application locally:
-1. Open terminal window in root directory
+1. Open terminal window in the server directory
 2. Execute `npm run build` to build the application
 3. Execute `npm start` to start the server
 4. Access the application on `localhost:3001` using a browser
